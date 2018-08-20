@@ -1,0 +1,44 @@
+{
+  "name": "coverage_test",
+  "version": "1.0.0",
+  "description": "test to show issue with coverage minimums",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "author": "madsteer",
+  "license": "ISC",
+  "dependencies": {
+    "jest-html-reporter": "^2.4.2"
+  },
+  "devDependencies": {
+    "jest": "^23.5.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/src/**/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "lines": 83
+      },
+      "./src/adding/": {
+        "branches": -0,
+        "lines": 70
+      }
+    },
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/dist",
+      "<rootDir>/node_modules",
+      "<rootDir>/coverage",
+      "<rootDir>/public"
+    ],
+    "testEnvironment": "node",
+    "testResultsProcessor": "./node_modules/jest-html-reporter"
+  },
+  "jest-html-reporter": {
+    "pageTitle": "Coverage Unit Tests"
+  }
+}
